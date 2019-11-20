@@ -1,0 +1,15 @@
+C:\Users\pama\source\repos\MessDB\MessDB\bin\Debug\Database21.accdb
+C:\Users\pama\source\repos\MessDB\MessDB\bin\Debug\MessDB.exe.config
+C:\Users\pama\source\repos\MessDB\MessDB\bin\Debug\MessDB.exe
+C:\Users\pama\source\repos\MessDB\MessDB\bin\Debug\MessDB.pdb
+C:\Users\pama\source\repos\MessDB\MessDB\obj\Debug\MessDB.csprojAssemblyReference.cache
+C:\Users\pama\source\repos\MessDB\MessDB\obj\Debug\MessDB.Form1.resources
+C:\Users\pama\source\repos\MessDB\MessDB\obj\Debug\MessDB.Properties.Resources.resources
+C:\Users\pama\source\repos\MessDB\MessDB\obj\Debug\MessDB.csproj.GenerateResource.cache
+C:\Users\pama\source\repos\MessDB\MessDB\obj\Debug\MessDB.csproj.CoreCompileInputs.cache
+C:\Users\pama\source\repos\MessDB\MessDB\obj\Debug\MessDB.exe
+C:\Users\pama\source\repos\MessDB\MessDB\obj\Debug\MessDB.pdb
+C:\Users\pama\source\repos\MessDB\MessDB\bin\Debug\MessDB.exe.manifest
+C:\Users\pama\source\repos\MessDB\MessDB\bin\Debug\MessDB.application
+C:\Users\pama\source\repos\MessDB\MessDB\obj\Debug\MessDB.exe.manifest
+C:\Users\pama\source\repos\MessDB\MessDB\obj\Debug\MessDB.application
