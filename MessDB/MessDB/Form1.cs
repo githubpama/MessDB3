@@ -1,18 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MessDB
 {
     public partial class Form1 : Form
     {
+        private const string V = "Provider=Microsoft.ACE.OLEDB.12.0;data source=C:\\Users\\pama\\source\repos\\MessDB\\MessDB32\\MessDB\\MessDB\\Database21.accdb";
+        private string dgv;
+        private string filename;
+
         public Form1()
         {
             InitializeComponent();
@@ -55,5 +54,60 @@ namespace MessDB
         {
             Process.Start("osk.exe");
         }
+
+        private void button3_Click(object sender, EventArgs e)
+
+        {
+            {
+                moduleExcel excelImp = new moduleExcel();
+
+                string title = " Excel Export by Camellabs";
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "Excel Documents (*.xls)|*.xls";
+                sfd.FileName = "camellabs.xls";
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    //to fix here
+                    //excelImp.ToCsV(dataGridView1);
+                    MessageBox.Show("Finish");
+                }
+            }
+
+           
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            {
+                string connString =
+                    V;
+
+                DataTable dataTableRes = new DataTable();
+
+                using (OleDbConnection conn = new OleDbConnection(connString))
+                {
+                    OleDbCommand cmd = new OleDbCommand("SELECT * FROM Table1", conn);
+
+                    conn.Open();
+
+                    OleDbDataAdapter adapter = new OleDbDataAdapter(cmd);
+
+                    adapter.Fill(dataTableRes);
+                }
+
+                dataGridView1.DataSource = dataTableRes;
+            }
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
+
+
 }
+    
+
