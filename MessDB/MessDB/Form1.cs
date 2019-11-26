@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.OleDb;
 using System.Diagnostics;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace MessDB
@@ -11,12 +12,19 @@ namespace MessDB
         private const string V = "Provider=Microsoft.ACE.OLEDB.12.0;data source=C:\\Users\\pama\\source\repos\\MessDB\\MessDB32\\MessDB\\MessDB\\Database21.accdb";
         private string dgv;
         private string filename;
+        private object camellabs;
+
 
         public Form1()
         {
             InitializeComponent();
+           
+            Version version = Assembly.GetExecutingAssembly().GetName().Version;
+            Text = Text + " " + version.Major + "." + version.Minor + " (build " + version.Build + ")"; //change form title
         }
-
+        
+        
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'database21DataSet.Table1' table. You can move, or remove it, as needed.
@@ -68,7 +76,7 @@ namespace MessDB
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
                     //to fix here
-                    //excelImp.ToCsV(dataGridView1);
+                    excelImp.ToCsV(dataGridView1, "camellabs.xls");
                     MessageBox.Show("Finish");
                 }
             }

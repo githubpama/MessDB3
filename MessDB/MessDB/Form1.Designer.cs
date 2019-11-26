@@ -183,7 +183,7 @@ namespace MessDB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(905, 688);
+            this.ClientSize = new System.Drawing.Size(905, 763);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.fillByToolStrip);
             this.Controls.Add(this.dataGridView1);

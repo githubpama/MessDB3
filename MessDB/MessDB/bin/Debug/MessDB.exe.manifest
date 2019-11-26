@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MessDB.exe" size="46552">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MessDB.exe" size="47064">
       <assemblyIdentity name="MessDB" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>iE0Ert085kYdkFoQWpndncgo+3pdOF6dn/RFGPbQsxE=</dsig:DigestValue>
+        <dsig:DigestValue>qum/kHFZfzmh2WHqpe6aazwZ6oquBfTxohclCOCR3A0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
