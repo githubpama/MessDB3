@@ -47,9 +47,10 @@ namespace MessDB
             this.table1TableAdapter = new MessDB.Database21DataSetTableAdapters.Table1TableAdapter();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.database21DataSet)).BeginInit();
@@ -70,7 +71,7 @@ namespace MessDB
             this.dataGridView1.DataSource = this.table1BindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(84, 80);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(797, 490);
+            this.dataGridView1.Size = new System.Drawing.Size(809, 490);
             this.dataGridView1.TabIndex = 0;
             // 
             // iDDataGridViewTextBoxColumn
@@ -117,7 +118,7 @@ namespace MessDB
             // 
             this.fillByToolStrip.Location = new System.Drawing.Point(0, 0);
             this.fillByToolStrip.Name = "fillByToolStrip";
-            this.fillByToolStrip.Size = new System.Drawing.Size(905, 25);
+            this.fillByToolStrip.Size = new System.Drawing.Size(984, 25);
             this.fillByToolStrip.TabIndex = 1;
             this.fillByToolStrip.Text = "fillByToolStrip";
             // 
@@ -145,23 +146,13 @@ namespace MessDB
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(577, 19);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(107, 62);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(690, 19);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(107, 62);
             this.button3.TabIndex = 4;
-            this.button3.Text = "button3";
+            this.button3.Text = "Export Excel";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -169,7 +160,6 @@ namespace MessDB
             // 
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Location = new System.Drawing.Point(84, 576);
             this.groupBox1.Name = "groupBox1";
@@ -179,11 +169,33 @@ namespace MessDB
             this.groupBox1.Text = "MessDB";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(771, 705);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 15);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(78, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(131, 33);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "MessDB";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(905, 763);
+            this.ClientSize = new System.Drawing.Size(984, 763);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.fillByToolStrip);
             this.Controls.Add(this.dataGridView1);
@@ -213,9 +225,10 @@ namespace MessDB
         private System.Windows.Forms.ToolStrip fillByToolStrip;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 
     
