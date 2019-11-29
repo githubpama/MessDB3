@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.OleDb;
 using System.Diagnostics;
+using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -19,13 +20,13 @@ namespace MessDB
         public Form1()
         {
             InitializeComponent();
-          
+
             Version version = Assembly.GetExecutingAssembly().GetName().Version;
             //Text = Text + " " + version.Major + "." + version.Minor + " (build " + version.Build + ")"; //change form title
             label1.Text = Text + " " + version.Major + "." + version.Minor + " (build " + version.Build + ")"; //change form title
         }
-        
-            
+
+
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'database21DataSet.Table1' table. You can move, or remove it, as needed.
@@ -66,75 +67,69 @@ namespace MessDB
 
         private void button3_Click(object sender, EventArgs e)
 
+        //csvFileWriter = StreamWriter
+        //scannerDataGridView = DataGridView   
         {
-            Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
-            Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
-            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
-            worksheet = workbook.Sheets["Sheet1"];
-            worksheet = workbook.ActiveSheet;
-            worksheet.Name = "ExportMessDB";
-
-            for (int i = 1; i < dataGridView1.Columns.Count+1; i++)
+            string CsvFpath = @"C:\scanner\CSV-EXPORT.csv";
+            try
             {
-                worksheet.Cells[i, 1] = dataGridView1.Columns[i - 1].HeaderText;
-            }
+                System.IO.StreamWriter csvFileWriter = new StreamWriter(CsvFpath, false);
 
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
-            {
-                for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                string columnHeaderText = "";
+
+                int countColumn = dataGridView1.ColumnCount - 1;
+
+                if (countColumn >= 0)
                 {
-                    worksheet.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value.ToString();
-                }
-            }
-
-            var saveFileDialoge = new SaveFileDialog();
-            saveFileDialoge.FileName = "output";
-            saveFileDialoge.DefaultExt = ".xlsx";
-            if (saveFileDialoge.ShowDialog()==DialogResult.OK)
-            {
-                workbook.SaveAs(saveFileDialoge.FileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-                
-            }
-            app.Quit();
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            {
-                string connString =
-                    V;
-
-                DataTable dataTableRes = new DataTable();
-
-                using (OleDbConnection conn = new OleDbConnection(connString))
-                {
-                    OleDbCommand cmd = new OleDbCommand("SELECT * FROM Table1", conn);
-
-                    conn.Open();
-
-                    OleDbDataAdapter adapter = new OleDbDataAdapter(cmd);
-
-                    adapter.Fill(dataTableRes);
+                    columnHeaderText = dataGridView1.Columns[0].HeaderText;
                 }
 
-                dataGridView1.DataSource = dataTableRes;
+                for (int i = 1; i <= countColumn; i++)
+                {
+                    columnHeaderText = columnHeaderText + ',' + dataGridView1.Columns[i].HeaderText;
+                }
+
+
+                csvFileWriter.WriteLine(columnHeaderText);
+
+                foreach (DataGridViewRow dataRowObject in dataGridView1.Rows)
+                {
+                    if (!dataRowObject.IsNewRow)
+                    {
+                        string dataFromGrid = "";
+
+                        dataFromGrid = dataRowObject.Cells[0].Value.ToString();
+
+                        for (int i = 1; i <= countColumn; i++)
+                        {
+                            dataFromGrid = dataFromGrid + ',' + dataRowObject.Cells[i].Value.ToString();
+
+                            csvFileWriter.WriteLine(dataFromGrid);
+                        }
+                    }
+                }
+
+
+                csvFileWriter.Flush();
+                csvFileWriter.Close();
+            }
+            catch (Exception exceptionObject)
+            {
+                MessageBox.Show(exceptionObject.ToString());
+            }
+        }
+            private void groupBox1_Enter(object sender, EventArgs e)
+            {
+
             }
 
-        }
+            private void label1_Click(object sender, EventArgs e)
+            {
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            }
         }
     }
 
 
-}
     
 
